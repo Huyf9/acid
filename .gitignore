@@ -32,3 +32,8 @@ cmake-build-debug
 
 # Mac files
 *.DS_Store
+
+# Build files
+*.cmake
+*.make
+*.dir/
