@@ -15,7 +15,7 @@
 #ifndef ACID_CORE_CPU_CPUALLOCATOR_H_
 #define ACID_CORE_CPU_CPUALLOCATOR_H_
 
-#include <acid/core/AllocatorBase.h>
+#include <acid/core/Allocator.h>
 #include <mimalloc.h>
 
 namespace acid {
@@ -36,7 +36,7 @@ static void cpu_free(void* p) {
 
 } // namespace cpu
 
-class ACID_API CPUAllocator : public AllocatorBase {
+class ACID_API CPUAllocator : public Allocator {
 public:
   CPUAllocator() = default;
 
