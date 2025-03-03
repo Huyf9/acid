@@ -60,12 +60,11 @@ public:
     return data_;
   }
 
-  void reset(void* data, deleteFunc deleter) {
+  void reset() {
     if (deleter_) {
       deleter_(data_);
     }
-    data_ = data;
-    deleter_ = deleter;
+    data_ = nullptr;
   }
 
   deleteFunc get_deleter() const {
