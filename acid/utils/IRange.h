@@ -52,6 +52,10 @@ struct IRange {
   Iterator end() const {
     return Iterator(end_);
   }
+
+private:
+  T begin_;
+  T end_;
 };
 
 }  // namespace acid
