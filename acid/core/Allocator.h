@@ -60,11 +60,22 @@ public:
     return data_;
   }
 
-  void reset() {
+  void reset(void* data, deleteFunc deleter) {
+    if (data_ != data) {
+      if (deleter_) {
+        deleter_(data_);
+      }
+      data_ = data;
+      deleter_ = deleter;
+    }
+  }
+
+  void release() {
     if (deleter_) {
       deleter_(data_);
     }
     data_ = nullptr;
+    deleter_ = freeNothing;
   }
 
   deleteFunc get_deleter() const {
